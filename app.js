@@ -9,6 +9,7 @@ const db = require('./configs/database');
 const indexRouter = require('./routes/Routes.index');
 const usersRouter = require('./routes/Routes.Users');
 const sessionsRouter = require('./routes/Routes.Sessions');
+const tasksRouter = require('./routes/Routes.Tasks');
 const secrets = require('./configs/secrets');
 
 db.connect();
@@ -36,6 +37,7 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/sessions', sessionsRouter);
+app.use('/tasks/', tasksRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,5 +1,5 @@
 const User = require('../models/Users');
-const createResponse = require('./Controllers.Helpers').createResponse
+const createResponse = require('./Controllers.Helpers').createResponse;
 const paramsBuilder = require('./Controllers.Helpers').paramsBuilder;
 const validParams = ['email', 'name', 'password'];
 
