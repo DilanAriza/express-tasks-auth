@@ -45,9 +45,34 @@ function CreateTasks(req, res) {
         })
 }
 
+function DeleteTask(req, res) {
+    Task.remove({ 'slug': req.params.id }).then(docDeleted => {
+        let responseDeleteTask = createResponse(false, 205, "Task deleted", { expiredData: docDeleted });
+        res.json(responseDeleteTask);
+    }).catch(err => {
+        let responseDeleteTask = createResponse(true, 500, "Error in delete task", err);
+        res.json(responseDeleteTask);
+    })
+}
+
+function UpdateTask(req, res) {
+    const params = paramsBuilder(validParams, req.body);
+    req.task = Object.assign(req.task, params);
+
+    req.task.save().then(doc => {
+        let responseUpdateTask = createResponse(false, 205, "Task updated", { updateData: doc });
+        res.json(responseUpdateTask);
+    }).catch(err => {
+        let responseUpdateTask = createResponse(true, 500, "Error in update task", err);
+        res.json(responseUpdateTask);
+    })
+}
+
 module.exports = {
     GetAllPlaces,
     CreateTasks,
     FindIdParamTask,
-    GetOneTask
+    GetOneTask,
+    DeleteTask,
+    UpdateTask
 }

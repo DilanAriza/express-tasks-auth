@@ -12,6 +12,13 @@ router.route('/:id')
         ControllersTasks.FindIdParamTask,
         ControllersTasks.GetOneTask
     )
-
+    .delete(
+        ControllersTasks.FindIdParamTask,
+        ControllersTasks.DeleteTask
+    )
+    .put(
+        ControllersTasks.FindIdParamTask,
+        ControllersTasks.UpdateTask
+    )
 
 module.exports = router;
