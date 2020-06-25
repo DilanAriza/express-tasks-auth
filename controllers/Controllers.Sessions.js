@@ -13,7 +13,8 @@ function Authenticate(req, res, next) {
                 next();
             } else {
                 console.log('invalid credential')
-                next(new Error('Invalid credentials'))
+                let responseAuthenticate = createResponse(true, 500, "You password is incorrect", { error: 'password' })
+                next();
             }
         }).catch(err => {
             console.log(err);
@@ -39,7 +40,7 @@ function SendTokenAndUserDoc(req, res) {
         let responseSendTokenAndUserDoc = createResponse(
             false,
             201,
-            "User create successfully", {
+            "User is verify", {
                 user: req.user,
                 jwt: req.token
             }

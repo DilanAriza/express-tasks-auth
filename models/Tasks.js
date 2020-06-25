@@ -51,7 +51,6 @@ function NumeroAleatorio() {
 
 function generateSlugAndContinue(count, next) {
     this.slug = slugify(this.title) + '-' + NumeroAleatorio();
-    console.log(this.slug);
     next();
 }
 
