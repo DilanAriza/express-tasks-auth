@@ -1,10 +1,13 @@
 function paramsBuilder(validParams, body) {
+    // 0.008 ms - 10.0 ms
+    console.time();
     let params = {};
     validParams.forEach(attr => {
         if (Object.prototype.hasOwnProperty.call(body, attr)) {
             params[attr] = body[attr];
         }
     });
+    console.timeEnd();
     return params
 }
 
