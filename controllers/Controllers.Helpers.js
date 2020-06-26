@@ -12,6 +12,8 @@ function paramsBuilder(validParams, body) {
 }
 
 function createResponse(error, code, message, content) {
+    console.time();
+
     console.log('Build respuesta');
     let responseJson = new Object();
 
@@ -19,6 +21,7 @@ function createResponse(error, code, message, content) {
     responseJson.code = code || 200;
     responseJson.message = message || "";
     responseJson.content = content || {};
+    console.timeEnd();
 
     return responseJson;
 }
