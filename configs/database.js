@@ -9,7 +9,7 @@ module.exports = {
         useFindAndModify: false,
         useCreateIndex: true
     }).then(db => {
-        console.log(`Db ${db.connection.name} is connected`);
+        console.log(`Db ${db.connection.name} is connected, on bug branch`);
     }).catch(err => {
         console.log(`Error: ${err}`);
     }),
